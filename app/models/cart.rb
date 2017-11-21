@@ -12,4 +12,8 @@ class Cart < ActiveRecord::Base
     end
     total
   end
+
+  def add_item(item_id)
+    self.line_item.build(item_id: item_id)
+  end
 end
