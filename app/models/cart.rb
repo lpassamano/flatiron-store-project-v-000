@@ -14,6 +14,6 @@ class Cart < ActiveRecord::Base
   end
 
   def add_item(item_id)
-    self.line_item.build(item_id: item_id)
+    self.line_items.build(item_id: item_id)
   end
 end
