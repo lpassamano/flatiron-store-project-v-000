@@ -14,6 +14,10 @@ class Cart < ActiveRecord::Base
   end
 
   def add_item(item_id)
-    self.line_items.build(item_id: item_id)
+    if line = self.line_items.where(item_id: item_id).first
+      line
+    else
+      self.line_items.build(item_id: item_id)
+    end
   end
 end
