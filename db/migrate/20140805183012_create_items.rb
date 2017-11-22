@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :title
       t.integer :category_id
       t.integer :inventory
-      t.decimal :price, precision: 10, scale: 2
+      t.integer :price
     end
   end
 end

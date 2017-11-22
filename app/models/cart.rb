@@ -14,14 +14,14 @@ class Cart < ActiveRecord::Base
     total
   end
 
+  # this method can't save the line item in order to pass tests!!!
   def add_item(item_id)
     line = self.line_items.where(item_id: item_id).first
     if line.present?
       line.quantity = line.quantity + 1
-      line.save 
-      self.save
+      line
     else
-      self.line_items.create(item_id: item_id)
+      self.line_items.build(item_id: item_id)
     end
   end
 end
