@@ -2,6 +2,7 @@ class Cart < ActiveRecord::Base
   has_many :line_items
   has_many :items, through: :line_items
   belongs_to :user
+  belongs_to :current_cart, class: "User", foreign_key: "user_id"
 
   def total
     total = 0
