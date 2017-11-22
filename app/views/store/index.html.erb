@@ -2,6 +2,7 @@
   <%= link_to category.title, category_path(category) %>
 <% end %>
 
+<!-- add logic so add to cart is only showing when logged in -->
 <% @items.each do |item| %>
   <p><%= item.title %> | <%= number_to_currency(item.price) %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) %></p>
 <% end %>
