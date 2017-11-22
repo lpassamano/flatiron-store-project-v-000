@@ -1,0 +1,2 @@
+<%= link_to line_item.item.title, item_path(line_item.item) %> | <%= number_to_currency(line_item.item.display_price) %> | Quantity: <%= line_item.quantity %><br />
+<%= display_inventory(line_item) %>

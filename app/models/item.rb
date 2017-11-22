@@ -8,4 +8,8 @@ class Item < ActiveRecord::Base
       item.inventory > 0
     end
   end
+
+  def display_price
+    self.price.to_f/100
+  end
 end

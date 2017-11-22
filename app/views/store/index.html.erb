@@ -2,9 +2,8 @@
   <%= link_to category.title, category_path(category) %>
 <% end %>
 
-<!-- add logic so add to cart is only showing when logged in -->
 <% @items.each do |item| %>
   <% if item.inventory > 0 %>
-    <p><%= link_to item.title, item_path(item) %> | <%= number_to_currency(item.price.to_f/100) %> <%= button_to 'Add to Cart', line_items_path(item_id: item) if current_user %></p>
+    <p><%= render partial: "items/item", locals: {item: item} %></p>
   <% end %>
 <% end %>

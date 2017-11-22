@@ -8,14 +8,9 @@ class CartsController < ApplicationController
   end
 
   def checkout
-    current_cart.line_items.each do |line|
-      line.item.inventory = line.item.inventory - line.quantity
-      line.item.save
-    end
-
+    current_cart.update_items_inventory
+    current_cart.update(status: "submitted")
     @cart = Cart.find(current_cart.id)
-    @cart.status = "submitted"
-    @cart.save
 
     current_user.current_cart = nil
     current_user.save
