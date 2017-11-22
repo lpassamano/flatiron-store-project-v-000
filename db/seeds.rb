@@ -20,3 +20,8 @@ end
     password: "fakepassword"
   )
 end
+
+counter = 1
+5.times do
+  User.find(counter).carts << Cart.create
+end
